@@ -37,7 +37,6 @@ def count_distance(points1: tuple, points2: tuple) -> float:
 
 
 def find_the_closest_points(lat: float, lon: float, year: int):
-
     dict_of_distances = dict()
     films = get_coordinates(make_film_lst("reduced_data.list"))
     points = []
@@ -47,7 +46,27 @@ def find_the_closest_points(lat: float, lon: float, year: int):
     for coordinates in points:
         dict_of_distances[count_distance((lat, lon), coordinates)] = coordinates
 
-    distances = sorted(dict_of_distances.keys())[:5] if len(dict_of_distances.keys()) > 5 \
+    distances = sorted(dict_of_distances.keys())[:3] if len(dict_of_distances.keys()) > 3 \
+        else sorted(dict_of_distances.keys())
+    result = []
+    for key, value in dict_of_distances.items():
+        if key in distances:
+            result.append(value)
+
+    return result
+
+
+def find_the_furthermost_points(lat: float, lon: float, year: int):
+    dict_of_distances = dict()
+    films = get_coordinates(make_film_lst("reduced_data.list"))
+    points = []
+    for film in films:
+        if str(year)[:2] == str(film[1])[:2]:
+            points.append(film[-1])
+    for coordinates in points:
+        dict_of_distances[count_distance((lat, lon), coordinates)] = coordinates
+
+    distances = sorted(dict_of_distances.keys())[-3:] if len(dict_of_distances.keys()) > 3 \
         else sorted(dict_of_distances.keys())
     result = []
     for key, value in dict_of_distances.items():
