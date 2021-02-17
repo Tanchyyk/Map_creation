@@ -19,4 +19,6 @@ Furthest location will be represented on map as a #red circles.
 Your location will be represented on map as a #green circle.
 
 # Visuals
+![code](https://user-images.githubusercontent.com/73783964/108218395-46d15600-713d-11eb-93ed-21e5c11aa0a3.png)
+
 ![map](https://user-images.githubusercontent.com/73783964/108217887-c6aaf080-713c-11eb-8322-0ef845b06f7f.png)
