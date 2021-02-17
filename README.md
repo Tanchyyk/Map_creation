@@ -4,7 +4,6 @@ locations, where were shot films of the same century as a year,
 you inputed.
 
 # Description_of_project
-#Decsription of project
 In main.py module we run a function: put_points_on_map(lat, lon, year). 
 
 You should set in arguments your latitude and longitude coordinates (lat, lon) and a year of film shooting.
@@ -23,7 +22,7 @@ Your location will be represented on map as a #green circle.
 Your location will be represented on map as a green circle.
 
 # Visuals
-##main.py  module:
+## main.py  module:
 
 After running this module, the map you see below will be generated.
 
