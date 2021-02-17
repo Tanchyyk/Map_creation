@@ -13,3 +13,4 @@ def put_closest_points_on_map(lat: float, lon: float, year: int):
                                     popup="film location",
                                     icon=folium.Icon()))
     map.save('My_Map.html')
+    return "Check map!"
