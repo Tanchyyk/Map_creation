@@ -1,6 +1,22 @@
-from creation_of_map import get_coordinates
+from geopy import Nominatim
+from geopy.extra.rate_limiter import RateLimiter
 import math
 from data_filter import make_film_lst
+
+
+def get_coordinates(film_lst: list) -> list:
+    result = []
+    for film in film_lst:
+        try:
+            geolocator = Nominatim(user_agent="location_find")
+            geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1, max_retries=1)
+            location = geolocator.geocode(film[-1])
+            film.append((location.latitude, location.longitude))
+            result.append(film)
+        except:
+            continue
+
+    return result
 
 
 def count_distance(points1: tuple, points2: tuple) -> float:
